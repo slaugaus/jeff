@@ -27,13 +27,14 @@ pub fn run(args: Args) -> Result<()> {
     let out_dir = cwd.join(file_name.unwrap().to_string() + "_pngs");
     std::fs::create_dir_all(&out_dir).unwrap();
 
-    let file_ext = args.file.extension().unwrap().to_lowercase();
+    read_other(args.file, out_dir)
 
-    match file_ext.as_str() {
-        // "xex" => read_xex(args.file, out_dir),
-        // "exe" => read_exe(args.file, out_dir),
-        _ => read_other(args.file, out_dir),
-    }
+    // let file_ext = args.file.extension().unwrap().to_lowercase();
+    // match file_ext.as_str() {
+    // "xex" => read_xex(args.file, out_dir),
+    // "exe" => read_exe(args.file, out_dir),
+    // _ => read_other(args.file, out_dir),
+    // }
 }
 
 // fn read_xex(xex_path: Utf8NativePathBuf, out_dir: Utf8NativePathBuf) -> Result<()> {
